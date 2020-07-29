@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Button from './components/Button';
 
 function App() {
+  const [count, setCount] = useState(0)
+
+  const incrementCount = increment =>{
+    setCount(count + increment)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Counter with React</h1>
+      <div className="btn-container">
+        <Button increment={1} onClickFunction={incrementCount}/>
+        <Button increment={5} onClickFunction={incrementCount}/>
+        <Button increment={10} onClickFunction={incrementCount}/>
+        <Button increment={15} onClickFunction={incrementCount}/>
+        <Button increment={20} onClickFunction={incrementCount}/>
+      </div>
+      <span>Total: {count}</span>
     </div>
   );
 }
